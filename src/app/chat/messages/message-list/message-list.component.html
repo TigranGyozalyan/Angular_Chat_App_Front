@@ -1,0 +1,9 @@
+<div class="row px-3">
+  <div class="col mt-2 ">
+    <ul class="list-unstyled">
+      <li *ngFor="let message of messages">
+        <app-message [message]="message"></app-message>
+      </li>
+    </ul>
+  </div>
+</div>
