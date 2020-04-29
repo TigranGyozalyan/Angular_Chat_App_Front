@@ -1,1 +1,8 @@
-<p>sidebar works!</p>
+<div *ngFor="let room of rooms">
+  <app-chat-room
+    [room]="room"
+    [(selectedRoomId)]="selectedRoomId"
+    (selectRoom)="selectRoom($event)"
+  >
+  </app-chat-room>
+</div>

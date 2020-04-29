@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {MessageService} from "../messages/message.service";
-import {Message} from "../../message";
+import {Component, OnInit} from '@angular/core';
+import {MessageService} from "../../services/message/message.service";
+import {Message} from "../../models/message";
+import {faPaperPlane} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-chat-container',
@@ -12,6 +13,7 @@ export class ChatContainerComponent implements OnInit {
   input: string;
   messageService: MessageService;
   messages: Message[];
+  faPaperPlane = faPaperPlane;
 
   constructor(messageService: MessageService) {
     this.messageService = messageService;

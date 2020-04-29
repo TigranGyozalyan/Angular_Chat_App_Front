@@ -16,6 +16,8 @@ function createWindow(): BrowserWindow {
     y: 0,
     width: 600,
     height: 800,
+    minWidth: 476,
+    minHeight: 632,
     webPreferences: {
       nodeIntegration: true,
     },

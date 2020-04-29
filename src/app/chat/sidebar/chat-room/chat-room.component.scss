@@ -1,0 +1,10 @@
+.room {
+  cursor: pointer;
+  max-height: 80px;
+   &:hover {
+     background-color: gray;
+   }
+}
+.thumbnail {
+  max-height: 60px;
+}

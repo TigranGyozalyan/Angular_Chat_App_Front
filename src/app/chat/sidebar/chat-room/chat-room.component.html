@@ -1,0 +1,8 @@
+<div class="row room" [class.bg-primary]="room.roomId === selectedRoomId" (click)="selectRoom(room.roomId)">
+  <div class="col-3 align-self-center">
+    <img [src]="room.thumbNailUri" alt="thumbnail" height="40px" class="rounded-circle img-fluid thumbnail"/>
+  </div>
+  <div class="col-9">
+    {{ room.roomName }}
+  </div>
+</div>
