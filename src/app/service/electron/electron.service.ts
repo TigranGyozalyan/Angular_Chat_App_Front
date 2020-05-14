@@ -31,4 +31,8 @@ export class ElectronService {
       this.fs = window.require('fs');
     }
   }
+
+  setCookie() {
+
+  }
 }

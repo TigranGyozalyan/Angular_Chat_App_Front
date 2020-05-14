@@ -1,8 +1,8 @@
 <div class="row room" [class.bg-primary]="room.roomId === selectedRoomId" (click)="selectRoom(room.roomId)">
-  <div class="col-3 align-self-center">
+  <div class="col-lg-3 col-auto align-self-center" placement="right" tooltipClass="d-md-none" [ngbTooltip]="room.roomName">
     <img [src]="room.thumbNailUri" alt="thumbnail" height="40px" class="rounded-circle img-fluid thumbnail"/>
   </div>
-  <div class="col-9">
+  <div class="col-9 d-none d-md-block pt-1">
     {{ room.roomName }}
   </div>
 </div>

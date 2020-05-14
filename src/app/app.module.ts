@@ -6,7 +6,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
-import {ServiceModule} from "./services/service.module";
+import {ServiceModule} from "./service/service.module";
 
 import {AppRoutingModule} from './app-routing.module';
 // NG Translate
@@ -17,6 +17,7 @@ import {ChatModule} from './chat/chat.module';
 
 import {AppComponent} from './app.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { LoginComponent } from './auth/login/login.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -24,7 +25,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     FormsModule,
