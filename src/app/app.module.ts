@@ -18,6 +18,9 @@ import {ChatModule} from './chat/chat.module';
 import {AppComponent} from './app.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { AuthContainerComponent } from './auth/auth-container/auth-container.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -25,10 +28,12 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, AuthContainerComponent],
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ServiceModule,
     SharedModule,

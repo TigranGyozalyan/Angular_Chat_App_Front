@@ -10,6 +10,7 @@ function createWindow(): BrowserWindow {
 
   const size = screen.getPrimaryDisplay().workAreaSize;
 
+
   // Create the browser window.
   window = new BrowserWindow({
     x: 0,

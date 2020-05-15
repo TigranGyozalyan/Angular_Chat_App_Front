@@ -1,8 +1,14 @@
-<div class="row room" [class.bg-primary]="room.roomId === selectedRoomId" (click)="selectRoom(room.roomId)">
-  <div class="col-lg-3 col-auto align-self-center" placement="right" tooltipClass="d-md-none" [ngbTooltip]="room.roomName">
-    <img [src]="room.thumbNailUri" alt="thumbnail" height="40px" class="rounded-circle img-fluid thumbnail"/>
-  </div>
-  <div class="col-9 d-none d-md-block pt-1">
-    {{ room.roomName }}
-  </div>
+<div
+  routerLink="../chat"
+  [queryParams]="{ roomId: room.roomId}"
+  class="row room"
+  [class.bg-primary]="room.roomId === selectedRoomId"
+>
+    <div class="col-lg-3 col-auto align-self-center" placement="right" tooltipClass="d-md-none"
+         [ngbTooltip]="room.roomName">
+      <img [src]="room.thumbNailUri" alt="thumbnail" height="40px" class="rounded-circle img-fluid thumbnail"/>
+    </div>
+    <div class="col-9 d-none d-md-block pt-1">
+      {{ room.roomName }}
+    </div>
 </div>

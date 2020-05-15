@@ -1,31 +1,33 @@
-<div class="bg-container w-100 h-100 d-flex align-items-center">
-  <div class="row w-100">
+<form [@simpleFadeAnimation]="'in'">
+  <div class="form-group">
+    <h2 class="text-white">Welcome to Chat</h2>
+
+
+    <label class="text-white" for="email">Email</label>
+    <input [(ngModel)]="email"
+           type="email"
+           placeholder="Email"
+           id="email"
+           class="form-control mb-3"
+           [ngModelOptions]="{standalone: true}"
+    />
+    <label class="text-white" for="password">Password</label>
+    <input [(ngModel)]="password"
+           type="password"
+           placeholder="Password"
+           id="password"
+           class="form-control mb-3"
+           [ngModelOptions]="{standalone: true}"
+    />
+    <button
+      class="btn btn-primary rounded w-100 mb-3" (click)="login()">Sign in</button>
+
+  </div>
+
+  <div class="row">
     <div class="col d-flex justify-content-center">
-      <form>
-        <div class="form-group">
-          <h2 class="text-white">Welcome to Chat</h2>
-
-
-          <label class="text-white" for="email">Email</label>
-          <input [(ngModel)]="email"
-                 type="email"
-                 placeholder="Email"
-                 id="email"
-                 class="form-control mb-3"
-                 [ngModelOptions]="{standalone: true}"
-          />
-          <label class="text-white" for="password">Password</label>
-          <input [(ngModel)]="password"
-                 type="password"
-                 placeholder="Password"
-                 id="password"
-                 class="form-control mb-3"
-                 [ngModelOptions]="{standalone: true}"
-          />
-          <button
-            class="btn btn-primary rounded w-100" (click)="login()">Sign in</button>
-        </div>
-      </form>
+      <span class="text-white text-center">Not registered yet? <a routerLink="../register" class="text-primary">Sign up</a></span>
     </div>
   </div>
-</div>
+
+</form>

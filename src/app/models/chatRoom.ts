@@ -1,5 +1,9 @@
+import { User } from "./user";
+import {Message} from "./message";
+
 export interface ChatRoom {
-  roomId: number,
+  roomId: string,
   roomName: string,
-  thumbNailUri: string
+  thumbNailUri: string,
+  messages: Message[]
 }

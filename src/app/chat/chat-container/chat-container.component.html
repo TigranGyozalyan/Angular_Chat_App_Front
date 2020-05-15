@@ -2,10 +2,11 @@
 
   <app-message-list class="w-100" [messages]="messages"></app-message-list>
 
+
   <div class="input-group position-absolute chat-input">
       <input class="form-control border-0" [(ngModel)]="input" placeholder="Type something here..."/>
       <div class="input-group-append">
-        <button class="btn px-2 bg-white">
+        <button type="submit" class="btn px-2 bg-white">
           <fa-icon [icon]="faPaperPlane"></fa-icon>
         </button>
       </div>

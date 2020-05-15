@@ -1,8 +1,1 @@
-<div *ngFor="let room of rooms">
-  <app-chat-room
-    [room]="room"
-    [(selectedRoomId)]="selectedRoomId"
-    (selectRoom)="selectRoom($event)"
-  >
-  </app-chat-room>
-</div>
+<app-room-list [rooms]="rooms" [selectedRoomId]="selectedRoomId"></app-room-list>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {ChatRoom} from "../../../models/chatRoom";
 
 @Component({
@@ -12,16 +12,9 @@ export class ChatRoomComponent implements OnInit {
   room: ChatRoom;
 
   @Input()
-  selectedRoomId: number;
-  @Output("selectRoom")
-  selectedRoomIdChange: EventEmitter<number> = new EventEmitter<number>();
+  selectedRoomId: string;
 
   constructor() { }
 
   ngOnInit(): void { }
-
-  selectRoom(id: number) : void {
-    console.log('Sent room id');
-    this.selectedRoomIdChange.emit(id);
-  }
 }

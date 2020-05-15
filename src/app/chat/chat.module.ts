@@ -11,10 +11,11 @@ import { ChatContainerComponent } from './chat-container/chat-container.componen
 import { MessageListComponent } from './messages/message-list/message-list.component';
 import { MessageComponent } from './messages/message/message.component';
 import { ChatRoomComponent } from './sidebar/chat-room/chat-room.component';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { RoomListComponent } from './sidebar/room-list/room-list.component';
 
 @NgModule({
-  declarations: [ChatComponent, SidebarComponent, ChatContainerComponent, MessageListComponent, MessageComponent, ChatRoomComponent],
+  declarations: [ChatComponent, SidebarComponent, ChatContainerComponent, MessageListComponent, MessageComponent, ChatRoomComponent, RoomListComponent],
   imports: [CommonModule, SharedModule, ChatRoutingModule, NgbModule, FontAwesomeModule]
 })
 export class ChatModule { }

@@ -1,0 +1,63 @@
+<form [@simpleFadeAnimation]="'in'">
+  <div class="form-group">
+    <h2 class="text-white">Sign up</h2>
+
+    <div class="form-row mb-2">
+      <div class="col">
+        <label class="text-white" for="firstName">First name</label>
+        <input
+          [(ngModel)]="firstName"
+          type="text"
+          class="form-control"
+          id="firstName"
+          placeholder="First name"
+          [ngModelOptions]="{standalone: true}"
+        >
+      </div>
+      <div class="col">
+        <label class="text-white" for="lastName">Last name</label>
+        <input
+          [(ngModel)]="lastName"
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder="Last name"
+          [ngModelOptions]="{standalone: true}"
+        >
+      </div>
+    </div>
+
+    <label class="text-white" for="email">Email</label>
+    <input [(ngModel)]="email"
+           type="email"
+           placeholder="Email"
+           id="email"
+           class="form-control mb-3"
+           [ngModelOptions]="{standalone: true}"
+    />
+    <label class="text-white" for="password">Password</label>
+    <input [(ngModel)]="password"
+           type="password"
+           placeholder="Password"
+           id="password"
+           class="form-control mb-3"
+           [ngModelOptions]="{standalone: true}"
+    />
+    <label class="text-white" for="confirmPassword">Confirm Password</label>
+    <input [(ngModel)]="confirmPassword"
+           type="password"
+           placeholder="Password"
+           id="confirmPassword"
+           class="form-control mb-3"
+           [ngModelOptions]="{standalone: true}"
+    />
+    <button
+      class="btn btn-primary rounded w-100 mb-3" (click)="register()">Register
+    </button>
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <span class="text-white text-center ">Already signed up? <a routerLink="../login" class="text-primary">Sign in</a></span>
+    </div>
+  </div>
+</form>
