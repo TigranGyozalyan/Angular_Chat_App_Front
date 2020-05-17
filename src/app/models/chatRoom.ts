@@ -2,8 +2,9 @@ import { User } from "./user";
 import {Message} from "./message";
 
 export interface ChatRoom {
-  roomId: string,
+  _id: string,
   roomName: string,
   thumbNailUri: string,
-  messages: Message[]
+  messages: Message[],
+  users?: User[]
 }

@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {AppConfig} from '../environments/environment';
-import {ElectronService} from "./service/electron/electron.service";
-import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
+import {User} from "./models/user";
+import {UserService} from "./service/user/user.service";
+import {ChatRoom} from "./models/chatRoom";
 
 @Component({
   selector: 'app-root',
@@ -11,33 +11,7 @@ import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Route
 })
 export class AppComponent {
 
-  public showOverlay = true;
-
-  constructor(
-    public electronService: ElectronService,
-    private translate: TranslateService,
-    private router: Router) {
-    translate.setDefaultLang('en');
-
-    router.events.subscribe((event: RouterEvent) => {
-      this.navigationInterceptor(event)
-    })
+  constructor() {
   }
 
-  // Shows and hides the loading spinner during RouterEvent changes
-  navigationInterceptor(event: RouterEvent): void {
-    if (event instanceof NavigationStart) {
-      this.showOverlay = true;
-    }
-    if (event instanceof NavigationEnd) {
-      this.showOverlay = false;
-    }
-    // Set loading state to false in both of the below events to hide the spinner in case a request fails
-    if (event instanceof NavigationCancel) {
-      this.showOverlay = false;
-    }
-    if (event instanceof NavigationError) {
-      this.showOverlay = false;
-    }
-  }
 }

@@ -1,8 +1,8 @@
 <div
   routerLink="../chat"
-  [queryParams]="{ roomId: room.roomId}"
+  [queryParams]="{ roomId: room._id}"
   class="row room"
-  [class.bg-primary]="room.roomId === selectedRoomId"
+  [class.bg-primary]="room._id === selectedRoomId"
 >
     <div class="col-lg-3 col-auto align-self-center" placement="right" tooltipClass="d-md-none"
          [ngbTooltip]="room.roomName">

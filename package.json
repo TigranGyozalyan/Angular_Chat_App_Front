@@ -53,6 +53,7 @@
     "@ngx-translate/core": "12.1.2",
     "@ngx-translate/http-loader": "4.0.0",
     "@types/jest": "25.1.4",
+    "@types/mocha": "7.0.2",
     "@types/node": "12.12.31",
     "@typescript-eslint/eslint-plugin": "2.25.0",
     "@typescript-eslint/parser": "2.25.0",
@@ -65,6 +66,7 @@
     "electron-reload": "1.5.0",
     "eslint": "6.8.0",
     "eslint-plugin-import": "2.20.1",
+    "jest": "26.0.1",
     "npm-run-all": "4.1.5",
     "rxjs": "6.5.4",
     "spectron": "10.0.1",
@@ -82,6 +84,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@ng-bootstrap/ng-bootstrap": "6.0.3",
     "bootstrap": "4.4.1",
-    "electron-storage": "1.0.7"
+    "socket.io-client": "2.3.0"
   }
 }

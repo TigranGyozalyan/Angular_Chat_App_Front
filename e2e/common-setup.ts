@@ -21,7 +21,7 @@ export default function setup(): void {
       //     |__ test
       //        |__ spec.js  <- You are here! ~ Well you should be.
 
-      // The following line tells spectron to look and use the main.js file
+      // The following line tells spectron to look and user the main.js file
       // and the package.json located 1 level above.
       args: [path.join(__dirname, '..')],
       webdriverOptions: {}

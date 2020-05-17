@@ -1,6 +1,9 @@
+import {ChatRoom} from "./chatRoom";
+
 export interface User {
-  firstName?: string,
-  lastName?: string,
-  email?: string,
-  password?: string,
+  _id: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  rooms : ChatRoom[]
 }

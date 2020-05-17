@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {AppConfig} from "../../../environments/environment";
 import {Observable} from "rxjs";
-import {User} from "../../models/user";
 import {Router} from "@angular/router";
-
+import {publishReplay, tap} from "rxjs/operators";
+import {UserPrincipal} from "../../models/principal";
+import {UserRegister} from "../../models/userRegister";
+import {SocketService} from "../socket/socket.service";
 
 
 @Injectable({
@@ -14,35 +16,42 @@ export class AuthService {
 
 
   SERVER_URL: string = AppConfig.SERVER_URL;
+  jwtToken = '';
 
-  constructor(private http: HttpClient, private router: Router) { }
-
-  authorize(email: string, password: string): void {
-
-    const url = `${this.SERVER_URL}/login`;
-
-    const body = {
-      email,
-      password
-    };
-
-    console.log(url);
-    console.log('about to send');
-
-    this.http.post<void>(url, body, {observe: 'response'})
-      .subscribe((res) =>{
-        console.log(res.headers.get("Authorization"));
-        this.router.navigate(['chat']);
-      });
+  constructor(private http: HttpClient, private router: Router,private socketService: SocketService) {
   }
 
-  register(user: User) {
+  authorize(user: UserPrincipal): Observable<HttpResponse<void>> {
+
+    const url = `${this.SERVER_URL}/login`;
+    return this.http.post<void>(url, user, {observe: 'response'})
+      .pipe(
+        tap((res) => {
+            this.jwtToken = res.headers.get('Authorization');
+            this.router.navigate(['chat']);
+          },
+          publishReplay()
+        )
+
+      );
+  }
+
+  register(user: UserRegister): Observable<HttpResponse<void>> {
 
     const url = `${this.SERVER_URL}/user`;
 
-    this.http.post<void>(url, user, {observe: 'response'})
-      .subscribe((res) =>{
-        console.log(res.status);
-      });
+    return this.http.post<void>(url, user, {observe: 'response'})
+      .pipe(
+        tap((res) => {
+            this.jwtToken = res.headers.get('Authorization');
+            this.router.navigate(['../login']);
+          },
+          publishReplay()
+        )
+      );
+  }
+
+  getAuthToken() {
+    return this.jwtToken;
   }
 }

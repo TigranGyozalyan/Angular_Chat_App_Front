@@ -1,9 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {RoomService} from "../../service/rooms/room.service";
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {RoomService} from "../../service/room/room.service";
 import {ChatRoom} from "../../models/chatRoom";
-import {filter} from "rxjs/operators";
+import {filter, tap} from "rxjs/operators";
 import {ActivatedRoute, NavigationStart, Router} from "@angular/router";
 import {Subscription} from "rxjs";
+import {UserService} from "../../service/user/user.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -13,18 +14,20 @@ import {Subscription} from "rxjs";
 export class SidebarComponent implements OnInit, OnDestroy {
 
   rooms: ChatRoom[];
+
+
   selectedRoomId: string = '';
   roomSubscription: Subscription;
   paramSubscription: Subscription;
 
-  constructor(private roomService: RoomService, private route: ActivatedRoute) {
-    this.roomService = roomService;
-  }
+  constructor(private roomService: RoomService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.roomSubscription = this.roomService.getRooms().subscribe(rooms => {
-      this.rooms = rooms;
-    });
+    this.roomSubscription =  this.roomService.getRooms()
+      .subscribe(rooms => {
+        console.log(rooms);
+        this.rooms = rooms;
+      })
 
     this.paramSubscription = this.route.queryParams.subscribe(params => {
       console.log(`updated room id with value ${params['roomId']}`);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../service/auth/auth.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {User} from "../../models/user";
+import {UserRegister} from "../../models/userRegister";
 
 @Component({
   selector: 'app-register',
@@ -36,12 +37,14 @@ export class RegisterComponent implements OnInit {
 
   register(): void {
 
-    const user: User = {
+    const user: UserRegister = {
       firstName: this.firstName,
       lastName: this.lastName,
       email: this.email,
       password: this.password,
     }
-    this.authService.register(user);
+    this.authService.register(user)
+      .subscribe(() => {
+      });
   }
 }

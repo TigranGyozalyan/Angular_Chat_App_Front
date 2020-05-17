@@ -1,8 +1,7 @@
-import {User} from "./user";
-
 export interface Message {
+  _id?: string,
   content: string,
-  id: string,
-  fromMe: boolean,
-  byUser?: User
+  byUser: string,
+  postedAt: Date,
+  roomId: string
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../service/auth/auth.service";
 
 import {
@@ -9,6 +9,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import {UserPrincipal} from "../../models/principal";
 
 @Component({
   selector: 'app-login',
@@ -40,12 +41,10 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  login(): void {
-    this.authService.authorize(this.email, this.password)
-    ;
+  login() {
+    this.authService.authorize({email: this.email, password : this.password})
+      .subscribe(() => {});
   }
-
 }
