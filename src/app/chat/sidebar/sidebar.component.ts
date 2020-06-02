@@ -5,6 +5,7 @@ import {filter, tap} from "rxjs/operators";
 import {ActivatedRoute, NavigationStart, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {UserService} from "../../service/user/user.service";
+import {AuthService} from "../../service/auth/auth.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -20,7 +21,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   roomSubscription: Subscription;
   paramSubscription: Subscription;
 
-  constructor(private roomService: RoomService, private route: ActivatedRoute) { }
+  constructor(private authService: AuthService, private roomService: RoomService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.roomSubscription =  this.roomService.getRooms()
@@ -33,6 +34,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
       console.log(`updated room id with value ${params['roomId']}`);
       this.selectedRoomId = params['roomId'];
     });
+  }
+
+  logOut() {
+    this.authService.logOut();
   }
 
   ngOnDestroy(): void {

@@ -18,8 +18,7 @@ export class AuthService {
   SERVER_URL: string = AppConfig.SERVER_URL;
   jwtToken = '';
 
-  constructor(private http: HttpClient, private router: Router,private socketService: SocketService) {
-  }
+  constructor(private http: HttpClient, private router: Router) { }
 
   authorize(user: UserPrincipal): Observable<HttpResponse<void>> {
 
@@ -49,6 +48,14 @@ export class AuthService {
           publishReplay()
         )
       );
+  }
+
+  logOut(): void {
+    const url = `${this.SERVER_URL}/logout`;
+    this.http.post<void>(url, {}).toPromise()
+      .then(() => {
+        this.router.navigate(['../auth']);
+      })
   }
 
   getAuthToken() {

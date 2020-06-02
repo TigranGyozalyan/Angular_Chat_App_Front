@@ -1,6 +1,7 @@
 import {app, BrowserWindow, screen} from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import {enableProdMode} from "@angular/core";
 
 let window: BrowserWindow = null;
 const args = process.argv.slice(1),
@@ -80,3 +81,5 @@ try {
   // Catch Error
   // throw e;
 }
+
+enableProdMode();
